@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5173:5173" # Map Vite's development port
+    volumes:
+      - .:/app # Mount the project directory to the container's /app folder
+    environment:
+      - NODE_ENV=development
+    # command: sleep infinity
+    stdin_open: true # Enable interaction
+    tty: true # Enable TTY
