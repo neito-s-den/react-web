@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Home from './components/Home/Home';
+import TicTacToe from './components/TicTacToe/TicTacToe';
 
 function App() {
   const [currentView, setCurrentView] = useState('home');
@@ -17,14 +18,13 @@ function App() {
 
   return (
     <>
-      <h1>Bonjour</h1>
-      {/* <nav>
+      <nav>
         <button onClick={() => setCurrentView('home')}>Home</button>
         <button onClick={() => setCurrentView('tictactoe')}>TicTacToe</button>
       </nav>
       <div className="view-container">
         {renderView()}
-      </div> */}
+      </div>
     </>
   );
 }
