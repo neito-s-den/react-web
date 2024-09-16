@@ -16,7 +16,7 @@ function TicTacToe() {
   };
 
   const resetBoard = () => {
-    console.log('Resetting board');
+    // console.log('Resetting board');
     setTiles(Array(9).fill(""));
     setCurrentPlayer(true);
     setReset(!reset);
@@ -24,7 +24,7 @@ function TicTacToe() {
 
   useEffect(() => {
     const calculateWinner = () => {
-      console.log("Calculating winner");
+      // console.log("Calculating winner");
 
       const winningLines =
         [[0, 1, 2],
@@ -36,21 +36,21 @@ function TicTacToe() {
         [0, 4, 8],
         [2, 4, 6]]
 
-      console.log("Current tiles are " + tiles);
+      // console.log("Current tiles are " + tiles);
       for (let i = 0; i < winningLines.length; i++) {
         const line = winningLines[i];
-        console.log("For config " + String(i + 1) + "(" + line.join('-') + ") tiles are " + (tiles[line[0]] == "" ? "-" : tiles[line[0]]) + (tiles[line[1]] == "" ? "-" : tiles[line[1]]) + (tiles[line[2]] == "" ? "-" : tiles[line[2]]));
+        // console.log("For config " + String(i + 1) + "(" + line.join('-') + ") tiles are " + (tiles[line[0]] == "" ? "-" : tiles[line[0]]) + (tiles[line[1]] == "" ? "-" : tiles[line[1]]) + (tiles[line[2]] == "" ? "-" : tiles[line[2]]));
         if (tiles[line[0]] == "X" && tiles[line[1]] == "X" && tiles[line[2]] == "X") {
-          console.log("Cross has won");
+          // console.log("Cross has won");
           return true;
         }
         if (tiles[line[0]] == "O" && tiles[line[1]] == "O" && tiles[line[2]] == "O") {
-          console.log("Circle has won");
+          // console.log("Circle has won");
           return true;
         }
       }
 
-      console.log("No winner");
+      // console.log("No winner");
 
       return false;
     }

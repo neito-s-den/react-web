@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Home",
+        "view": "home",
+        "icon": "home.png"
+    },
+    {
+        "name": "TicTacToe",
+        "view": "tictactoe",
+        "icon": "tictactoe.png"
+    }
+]

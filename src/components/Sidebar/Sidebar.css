@@ -1,26 +1,24 @@
-.sidebar {
-    /* position: fixed; */
-    /* top: 0;
-    left: 0; */
+.menu {
     z-index: 1000;
     height: 100vh;
     background-color: #121212;
-    width: 200px;
     overflow-y: auto;
 }
 
-.sidebar .menuElement {
-    /* display: flex; */
-    padding: 1em 2em;
-    width: auto;
-    overflow: hidden;
+.folded {
+    width: 60px;
+}
+
+.unfolded {
+    width: 240px;
+}
+
+.menuElement {
+    display: flex;
+    justify-content: center;
     border: 1px solid white;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 100%;
+    padding: 0.5em 0;
 }
-
-.sidebar .menuElement:hover {
-    background-color: #1a1a1a;
+.menuElement img {
+    height: 1.5em;
 }
-

@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   const [currentView, setCurrentView] = useState('tictactoe');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const renderView = () => {
     switch (currentView) {
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <div className="view-container">
-        <Sidebar setCurrentView={setCurrentView} />
+        <Sidebar setCurrentView={setCurrentView} isOpen={isSidebarOpen}/>
         {renderView()}
       </div>
     </>
