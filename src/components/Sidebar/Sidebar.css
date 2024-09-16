@@ -18,14 +18,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 100%;
-       
 }
 
 .sidebar .menuElement:hover {
-    background-color: #1a1a1a;
-}
-
-.sidebar .menuElement: {
     background-color: #1a1a1a;
 }
 

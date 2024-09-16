@@ -66,7 +66,7 @@ function TicTacToe() {
   }, [tiles]);
 
   return (<>
-    <div>
+    <div className={styles.root}>
       <h1>TicTacToe</h1>
       <div>Current player : {currentPlayer ? "Cross" : "Circle"}</div>
       <button onClick={resetBoard}>Reset</button>
