@@ -3,7 +3,7 @@ import Home from './components/Home/Home';
 import TicTacToe from './components/TicTacToe/TicTacToe';
 
 function App() {
-  const [currentView, setCurrentView] = useState('home');
+  const [currentView, setCurrentView] = useState('tictactoe');
 
   const renderView = () => {
     switch (currentView) {

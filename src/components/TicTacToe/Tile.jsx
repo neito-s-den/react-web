@@ -1,28 +1,41 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './Tile.css'; // Assuming you have a CSS file for styling
+import React, { useState, useEffect, useRef } from 'react';
+import './Tile.css';
+import xIcon from '../../assets/x.png';
+import oIcon from '../../assets/o.png';
 
-const Tile = ({ initialContent }) => {
-  const [content, setContent] = useState(initialContent);
+function Tile(props) {
+  const [icon, setIcon] = useState(""); // true = X, false = O
+  const [isClicked, setIsClicked] = useState(false);
+  const firstRender = useRef(false);
 
   const handleClick = () => {
-    // Logic to update the content
-    setContent('New Content'); // Example update
+    if (!isClicked) {
+      setIsClicked(true);
+      setIcon(props.currentPlayer ? "X" : "O");
+    }
   };
 
+  useEffect(() => {
+    if (firstRender.current) {
+        setIcon("");
+        setIsClicked(false);
+    } else {
+      firstRender.current = true;
+    }
+  }, [props.reset]);
+
+  useEffect(() => {
+    props.onTileClick(props.id);
+  }, [icon]);
   return (
-    <div className="tile" onClick={handleClick}>
-      {content}
-    </div>
+    <>
+      <div className="tile" onClick={handleClick}>
+        <div className='tileId'>
+          {icon === "" ? null : icon === "X" ? <img src={xIcon} alt="" className='tileIcon' /> : <img src={oIcon} alt="" className='tileIcon' />}
+        </div>
+      </div>
+    </>
   );
-};
-
-Tile.propTypes = {
-  initialContent: PropTypes.string
-};
-
-Tile.defaultProps = {
-  initialContent: ''
-};
+}
 
 export default Tile;

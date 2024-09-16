@@ -1,0 +1,16 @@
+.tile {
+  height: 50px;
+  width: 50px;
+  border: 1px solid wheat;
+  margin: 2px;
+}
+.tileId {
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+.tileIcon {
+  max-width: 100%;
+  max-height: 100%;
+}
