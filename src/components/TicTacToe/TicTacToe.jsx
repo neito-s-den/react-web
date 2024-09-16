@@ -66,27 +66,29 @@ function TicTacToe() {
   }, [tiles]);
 
   return (<>
-    <h1>TicTacToe</h1>
-    <div>Current player : {currentPlayer ? "Cross" : "Circle"}</div>
-    <button onClick={resetBoard}>Reset</button>
-    <div className={styles.board}>
-      {Array.from({ length: 3 }).map((_, i) => {
-        return (
-          <div className={styles.row} key={i}>
-            {Array.from({ length: 3 }).map((_, j) => {
-              const key = (i * 3) + (j);
-              return (
-                <Tile
-                  currentPlayer={currentPlayer}
-                  key={key}
-                  id={key}
-                  onTileClick={onTileClick}
-                  reset={reset} />
-              )
-            })}
-          </div>
-        )
-      })}
+    <div>
+      <h1>TicTacToe</h1>
+      <div>Current player : {currentPlayer ? "Cross" : "Circle"}</div>
+      <button onClick={resetBoard}>Reset</button>
+      <div className={styles.board}>
+        {Array.from({ length: 3 }).map((_, i) => {
+          return (
+            <div className={styles.row} key={i}>
+              {Array.from({ length: 3 }).map((_, j) => {
+                const key = (i * 3) + (j);
+                return (
+                  <Tile
+                    currentPlayer={currentPlayer}
+                    key={key}
+                    id={key}
+                    onTileClick={onTileClick}
+                    reset={reset} />
+                )
+              })}
+            </div>
+          )
+        })}
+      </div>
     </div>
   </>);
 }

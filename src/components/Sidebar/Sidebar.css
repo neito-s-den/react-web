@@ -1,0 +1,31 @@
+.sidebar {
+    /* position: fixed; */
+    /* top: 0;
+    left: 0; */
+    z-index: 1000;
+    height: 100vh;
+    background-color: #121212;
+    width: 200px;
+    overflow-y: auto;
+}
+
+.sidebar .menuElement {
+    /* display: flex; */
+    padding: 1em 2em;
+    width: auto;
+    overflow: hidden;
+    border: 1px solid white;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+       
+}
+
+.sidebar .menuElement:hover {
+    background-color: #1a1a1a;
+}
+
+.sidebar .menuElement: {
+    background-color: #1a1a1a;
+}
+

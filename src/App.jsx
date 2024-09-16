@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Home from './components/Home/Home';
 import TicTacToe from './components/TicTacToe/TicTacToe';
+import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   const [currentView, setCurrentView] = useState('tictactoe');
@@ -18,11 +19,8 @@ function App() {
 
   return (
     <>
-      <nav>
-        <button onClick={() => setCurrentView('home')}>Home</button>
-        <button onClick={() => setCurrentView('tictactoe')}>TicTacToe</button>
-      </nav>
       <div className="view-container">
+        <Sidebar setCurrentView={setCurrentView} />
         {renderView()}
       </div>
     </>
