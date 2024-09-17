@@ -10,7 +10,7 @@
         "icon": "faGamepad"
     },
     {
-        "name": "No Name Card Game",
+        "name": "No Name Card Game Scoreboard",
         "view": "nonamecardgame",
         "icon": "faHeart"
     }
