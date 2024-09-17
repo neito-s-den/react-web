@@ -8,5 +8,11 @@
         "name": "TicTacToe",
         "view": "tictactoe",
         "icon": "faGamepad"
+    },
+    {
+        "name": "No Name Card Game",
+        "view": "nonamecardgame",
+        "icon": "faHeart"
     }
+
 ]

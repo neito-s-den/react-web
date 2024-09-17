@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import menuItems from "../../assets/menu-items.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faGamepad, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faGamepad, faBars, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const icons = {
   faHome,
   faGamepad,
+  faHeart
 };
 
 function Sidebar({ setCurrentView, isOpen, switchMenuState }) {

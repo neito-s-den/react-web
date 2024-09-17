@@ -13,3 +13,5 @@
 ## On admin page
 - Status page for internal services
 
+## No Name card game scorer
+

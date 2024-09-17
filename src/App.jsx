@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Home from "./components/Home/Home";
 import TicTacToe from "./components/TicTacToe/TicTacToe";
 import Sidebar from "./components/Sidebar/Sidebar";
+import NoNameCardGame from "./components/NoNameCardGame/NoNameCardGame";
 
 function App() {
   const [currentView, setCurrentView] = useState("tictactoe");
@@ -13,6 +14,8 @@ function App() {
         return <Home />;
       case "tictactoe":
         return <TicTacToe />;
+      case "nonamecardgame":
+        return <NoNameCardGame />;
       default:
         return <Home />;
     }
