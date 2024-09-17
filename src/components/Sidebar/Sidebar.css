@@ -3,6 +3,8 @@
     height: 100vh;
     background-color: #121212;
     overflow-y: auto;
+    transition: width 0.3s ease-in-out;
+    overflow-x: hidden;
 }
 
 .menu .icon {
@@ -19,12 +21,17 @@
 }
 
 
+
 .menuElement {
     display: flex;
     align-items: center; /* Align items vertically */
     padding: 0.5em 1em;
+    cursor: pointer;
 }
 
+.menuElement:hover {
+    background-color: #444;
+}
 .unfolded .menuElement {
     display: flex;
     flex-direction: row;

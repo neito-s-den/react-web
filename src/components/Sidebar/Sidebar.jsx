@@ -17,12 +17,13 @@ function Sidebar({ setCurrentView, isOpen, switchMenuState }) {
   return (
     <aside className={`menu ${isOpen ? 'unfolded' : 'folded'}`}>
       <div
-        className="menuElement"
+        className={`menuElement`}
         onClick={() => {
           handleMenuClick();
         }}
       >
         <FontAwesomeIcon className="icon" icon={faBars} />
+        {isOpen && <div className="icon-name">Menu</div>}
       </div>
       {menuItems.map((item, index) => (
         <div
