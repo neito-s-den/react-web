@@ -2,8 +2,64 @@
     width: 300px;
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
 }
 
-/* .nameInput {
+.nameInput {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    /* background-color: ; */
+}
 
-} */
+.nameInput * {
+    flex-grow: 1;
+}
+.nameInput > :first-child {
+    margin-right: 5px;
+}
+.title {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+.playerList {
+    height: 100%;
+    padding-top: 1em;
+}
+
+.player {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.playerList > :nth-child(odd) {
+    background-color: #202020;
+}
+
+.playerList > :hover {
+    background-color: #151515;
+}
+
+.trashIcon {
+    position: absolute;
+    right: 0; /* Align to the right side */
+}.player {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+    justify-content: center;
+    position: relative; /* Make this the containing block for the absolute positioning */
+}
+
+.trashIcon {
+    position: absolute;
+    right: 0; /* Align to the right side */
+    padding: 0 10px 0 0 ;
+    cursor: pointer;
+}
