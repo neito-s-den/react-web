@@ -5,7 +5,7 @@
 - [] Replace the png's by simple letter with nice CSS
 - [] Animate 
 - [] CSS the Game board (centered, colored, borders and stuff)
-
+- [] Add local storage to remember favorite home page
 # Pages idea
 
 ## Todo list attached to a dockerized microservice (basic write on JSON file)

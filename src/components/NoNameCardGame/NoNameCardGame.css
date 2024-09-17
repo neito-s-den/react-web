@@ -1,0 +1,19 @@
+.root {
+    /* margin: 0 auto; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.root > h1 {
+    margin: 0.5em auto;
+}
+
+.gameBody {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+
+}

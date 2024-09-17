@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import NoNameCardGame from "./components/NoNameCardGame/NoNameCardGame";
 
 function App() {
-  const [currentView, setCurrentView] = useState("tictactoe");
+  const [currentView, setCurrentView] = useState("nonamecardgame");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const renderView = () => {
