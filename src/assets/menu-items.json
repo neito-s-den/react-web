@@ -2,11 +2,11 @@
     {
         "name": "Home",
         "view": "home",
-        "icon": "home.png"
+        "icon": "faHome"
     },
     {
         "name": "TicTacToe",
         "view": "tictactoe",
-        "icon": "tictactoe.png"
+        "icon": "faGamepad"
     }
 ]

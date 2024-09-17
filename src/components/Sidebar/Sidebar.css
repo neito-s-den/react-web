@@ -5,6 +5,11 @@
     overflow-y: auto;
 }
 
+.menu .icon {
+    /* height: 1.5em; */
+    padding: 0.5em;
+}
+
 .folded {
     width: 60px;
 }
@@ -13,12 +18,21 @@
     width: 240px;
 }
 
+
 .menuElement {
     display: flex;
-    justify-content: center;
-    border: 1px solid white;
-    padding: 0.5em 0;
+    align-items: center; /* Align items vertically */
+    padding: 0.5em 1em;
 }
-.menuElement img {
-    height: 1.5em;
+
+.unfolded .menuElement {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items vertically */
+    padding: 0.5em 1em;
 }
+
+.unfolded .menuElement .icon-name {
+    margin-left: 0.5em; /* Add some space between the icon and the name */
+}
+
