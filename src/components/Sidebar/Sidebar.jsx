@@ -13,52 +13,29 @@ function Sidebar({ setCurrentView, isOpen, switchMenuState }) {
   const handleMenuClick = () => {
     switchMenuState();
   };
-  if (!isOpen) {
-    return (
-      <aside className={`menu folded`}>
+
+  return (
+    <aside className={`menu ${isOpen ? 'unfolded' : 'folded'}`}>
+      <div
+        className="menuElement"
+        onClick={() => {
+          handleMenuClick();
+        }}
+      >
+        <FontAwesomeIcon className="icon" icon={faBars} />
+      </div>
+      {menuItems.map((item, index) => (
         <div
           className="menuElement"
-          onClick={() => {
-            handleMenuClick();
-          }}
+          key={index}
+          onClick={() => setCurrentView(item.view)}
         >
-          <FontAwesomeIcon className="icon" icon={faBars} />
+          <FontAwesomeIcon className="icon" icon={icons[item.icon]} />
+          {isOpen && <div className="icon-name">{item.name}</div>}
         </div>
-        {menuItems.map((item, index) => (
-          <div
-            className="menuElement"
-            key={index}
-            onClick={() => setCurrentView(item.view)}
-          >
-            <FontAwesomeIcon className="icon" icon={icons[item.icon]} />
-          </div>
-        ))}
-      </aside>
-    );
-  } else {
-    return (
-      <aside className={`menu unfolded`}>
-        <div
-          className="menuElement"
-          onClick={() => {
-            handleMenuClick();
-          }}
-        >
-          <FontAwesomeIcon className="icon" icon={faBars} />
-        </div>
-        {menuItems.map((item, index) => (
-          <div
-            className="menuElement"
-            key={index}
-            onClick={() => setCurrentView(item.view)}
-          >
-            <FontAwesomeIcon className="icon" icon={icons[item.icon]} />
-            <div className="icon-name">{item.name}</div>
-          </div>
-        ))}
-      </aside>
-    );
-  }
+      ))}
+    </aside>
+  );
 }
 
 export default Sidebar;
