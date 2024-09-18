@@ -14,19 +14,9 @@ function PlayerManager({ onAddPlayerClicked, onRemovePlayerClicked, players }) {
     setPlayer("");
   };
 
-  const removePlayer = (index) => {
-    console.log("Removing index...", index);
-    onRemovePlayerClicked(player);
-  };
-
-  const handleInputChange = (event) => {
-    setPlayer(event.target.value);
-  };
-
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       console.log("Enter key pressed");
-
       addPlayer();
     }
   };
@@ -39,7 +29,7 @@ function PlayerManager({ onAddPlayerClicked, onRemovePlayerClicked, players }) {
           name="newPlayer"
           id="newPlayer"
           placeholder="New player name..."
-          onChange={handleInputChange}
+          onChange={(event) => setPlayer(event.target.value)}
           onKeyUp={handleKeyPress}
           value={player}
         />
@@ -56,7 +46,7 @@ function PlayerManager({ onAddPlayerClicked, onRemovePlayerClicked, players }) {
               <FontAwesomeIcon
                 icon={faTrash}
                 onClick={() => {
-                  removePlayer(index);
+                  onRemovePlayerClicked(index);
                 }}
               />
             </div>
