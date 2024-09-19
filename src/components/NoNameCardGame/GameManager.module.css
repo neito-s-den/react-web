@@ -63,3 +63,9 @@
     padding: 0 10px 0 0 ;
     cursor: pointer;
 }
+
+.startGame {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}

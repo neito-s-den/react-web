@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import PlayerManager from "./PlayerManager";
+import GameManager from "./GameManager";
 import ScoreBoard from "./ScoreBoard";
 import "./NoNameCardGame.css";
 
 function NoNameCardGame() {
   const [players, setPlayers] = useState(["Will", "Sak", "Mic", "Red"]);
+  const [gameStarted, setGameStarted] = useState(false);
 
   const onAddPlayerClicked = (player) => {
     console.log("Adding player from parent ...");
@@ -21,10 +22,12 @@ function NoNameCardGame() {
     <div className="root">
       <h1>No Name Card Scoreboard</h1>
       <div className="gameBody">
-        <PlayerManager
+        <GameManager
           onAddPlayerClicked={onAddPlayerClicked}
           onRemovePlayerClicked={onRemovePlayerClicked}
           players={players}
+          gameStarted={gameStarted}
+          setGameStarted={setGameStarted}
         />
         <ScoreBoard players={players} />
       </div>
