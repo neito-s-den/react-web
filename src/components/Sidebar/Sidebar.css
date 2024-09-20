@@ -1,43 +1,42 @@
 .menu {
-    z-index: 1000;
-    height: 100vh;
-    background-color: #121212;
-    overflow-y: auto;
-    transition: width 0.3s ease-in-out;
-    overflow-x: hidden;
+  z-index: 100;
+  height: 100vh;
+  background-color: #121212;
+  overflow-y: auto;
+  transition: width 0.3s ease-in-out;
+  overflow-x: hidden;
 }
 
 .menu .icon {
-    /* height: 1.5em; */
-    padding: 0.5em;
+  /* height: 1.5em; */
+  padding: 0.5em;
 }
 
 .folded {
-    width: 60px;
+  width: 60px;
 }
 
 .unfolded {
-    width: 240px;
+  width: 240px;
 }
 
 .menuElement {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    padding: 0.5em 1em;
-    cursor: pointer;
+  display: flex;
+  align-items: center; /* Align items vertically */
+  padding: 0.5em 1em;
+  cursor: pointer;
 }
 
 .menuElement:hover {
-    background-color: #444;
+  background-color: #444;
 }
 .unfolded .menuElement {
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Align items vertically */
-    padding: 0.5em 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Align items vertically */
+  padding: 0.5em 1em;
 }
 
 .unfolded .menuElement .icon-name {
-    margin-left: 0.5em; /* Add some space between the icon and the name */
+  margin-left: 0.5em; /* Add some space between the icon and the name */
 }
-
