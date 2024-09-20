@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./GameManager.module.css";
-import ConfirmationModal from "./ConfirmationModal";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+import RoundModal from "./RoundModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,10 +13,13 @@ function GameManager({
   setGameStarted,
 }) {
   const [player, setPlayer] = useState("");
-  const [modalState, setModalState] = useState({
-    isOpen: true,
+  const [confirmModalState, setConfirmModalState] = useState({
+    isOpen: false,
     title: "",
     message: "",
+  });
+  const [roundModalState, setRoundModalState] = useState({
+    isOpen: false,
   });
 
   const addPlayer = () => {
@@ -35,11 +39,14 @@ function GameManager({
 
   const addRound = () => {
     console.log("adding round");
+    setRoundModalState({
+      isOpen: true,
+    })
   };
 
   const cancelGame = () => {
     console.log("canceling game");
-    setModalState({
+    setConfirmModalState({
       isOpen: true,
       title: "Cancel Game ?",
       message: "Are you sure you want to cancel the game ?",
@@ -79,18 +86,34 @@ function GameManager({
     );
   };
 
+  const resetGame = () => {
+    console.log("resetting game");
+    setGameStarted(false);
+    setPlayer("");
+    setConfirmModalState({
+      isOpen: false,
+      title: "",
+      message: "",
+    });
+  };
   return (
     <div className={styles.root}>
       <ConfirmationModal
-        modalState={modalState}
-        onClose={() =>
-          setModalState({
+        modalState={confirmModalState}
+        onClose={(choice) => 
+          choice
+            ? resetGame()
+            :
+          setConfirmModalState({
             isOpen: false,
             title: "",
             message: "",
           })
         }
       />
+      <RoundModal modalState={roundModalState} onClose={(data) => {
+        data.cancel ? setRoundModalState({}) : validateRound(data);
+      }} players={players} />
       <div className={styles.nameInput}>
         <input
           type="text"
