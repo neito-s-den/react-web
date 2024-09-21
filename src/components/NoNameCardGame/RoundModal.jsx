@@ -39,7 +39,7 @@ const RoundModal = ({ modalState, onClose, players }) => {
                         ))}
                     </div>
                     <div className={styles.buttons}>
-                        <button onClick={() => { onClose({ cancel: false }) }}>Add score</button>
+                        <button onClick={() => { onClose({ cancel: false, scores: {scores}}) }} disabled={!allScoresFilled}>Add score</button>
                         <button onClick={() => { onClose({ cancel: true }) }}>Cancel</button>
                     </div>
                 </div>
