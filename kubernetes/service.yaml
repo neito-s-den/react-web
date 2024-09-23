@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: neitosden-react
+  namespace: neitosden-react
+  labels:
+    app.kubernetes.io/name: neitosden-react
+spec:
+  selector:
+    app: neitosden-react
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5173
+  type: ClusterIP

@@ -41,7 +41,7 @@ function GameManager({
     console.log("adding round");
     setRoundModalState({
       isOpen: true,
-    })
+    });
   };
 
   const cancelGame = () => {
@@ -96,24 +96,32 @@ function GameManager({
       message: "",
     });
   };
+  const validateRound = (data) => {
+    console.log("validating round");
+    console.log(data);
+  };
+
   return (
     <div className={styles.root}>
       <ConfirmationModal
         modalState={confirmModalState}
-        onClose={(choice) => 
+        onClose={(choice) =>
           choice
             ? resetGame()
-            :
-          setConfirmModalState({
-            isOpen: false,
-            title: "",
-            message: "",
-          })
+            : setConfirmModalState({
+                isOpen: false,
+                title: "",
+                message: "",
+              })
         }
       />
-      <RoundModal modalState={roundModalState} onClose={(data) => {
-        data.cancel ? setRoundModalState({}) : validateRound(data);
-      }} players={players} />
+      <RoundModal
+        modalState={roundModalState}
+        onClose={(data) => {
+          data.cancel ? setRoundModalState({}) : validateRound(data);
+        }}
+        players={players}
+      />
       <div className={styles.nameInput}>
         <input
           type="text"

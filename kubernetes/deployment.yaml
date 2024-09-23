@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neitosden-react
+  namespace: neitosden-react
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: neitosden-react
+  template:
+    metadata:
+      labels:
+        app: neitosden-react
+    spec:
+      containers:
+      - name: neitosden-react
+        image: your-docker-image:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "500Mi"
+            cpu: "500m"

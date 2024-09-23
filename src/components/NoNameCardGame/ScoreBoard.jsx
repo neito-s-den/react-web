@@ -9,8 +9,7 @@ function ScoreBoard({ players }) {
         <div key={index} className={styles.playerColumn}>
           <div className={styles.playerName}>{player}</div>
           <div className={styles.currentGame}></div>
-          <div className={styles.playerScore}>
-          </div>
+          <div className={styles.playerScore}></div>
         </div>
       ))}
     </div>
