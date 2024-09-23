@@ -4,7 +4,7 @@ metadata:
   name: neitosden-react
   namespace: neitosden-react
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: neitosden-react
@@ -13,12 +13,16 @@ spec:
       labels:
         app: neitosden-react
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: neitosden-react
-        image: your-docker-image:latest
-        imagePullPolicy: Never
+        image: ghcr.io/neito-s-den/react-web/app:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 80
+          - name: http
+            containerPort: 5173
+            protocol: TCP
         resources:
           requests:
             memory: "64Mi"
