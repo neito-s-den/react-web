@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styles from "./RoundModal.module.css";
 
 const RoundModal = ({ modalState, onClose, players }) => {
-    if (!modalState.isOpen) return null;
+  if (!modalState.isOpen) return null;
 
-    const [scores, setScores] = useState(Array(players.length).fill(''));
+  const [scores, setScores] = useState(Array(players.length).fill(""));
 
   const handleScoreChange = (index, value) => {
     const newScores = [...scores];
