@@ -1,0 +1,52 @@
+# nameOverride replace the name of the chart
+nameOverride:
+# fullnameOverride
+fullnameOverride:
+
+### Ingress configuration
+### Will automatically bind the hosts to the service
+ingress:
+  enabled: yes
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  tls:
+    - secretName: neitosden-tls
+      hosts:
+        - neitosden.fr
+  hosts:
+    - host: neitosden.fr
+      paths:
+        - path: /
+          pathType: Prefix
+
+# managedImagePullSecret, pass a base64 encoded version of a
+# .dockerconfigjson and it will be created by helm and applied
+# to all resources
+managedImagePullSecret:
+
+# imagePullSecrets is an object array of imagePullSecrets that will
+# be added to all resources.
+# exemple value: - name: name-of-secret
+imagePullSecrets: 
+  - name: regcred
+
+
+# imagesConfiguration allow to configure container image URLs for the console.
+# Since all 3 images used by the console are shipped synchronously.
+imagesConfiguration:
+  global:
+    repo: 
+    tag: latest
+  custom:
+    react:
+      repo:
+      tag:
+
+# globalLabels will be applied to all deployments and jobs 
+globalLabels:
+# globalAnnotations will be applied to all deployments and jobs 
+globalAnnotations: 
+
+service:
+  port: 80

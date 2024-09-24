@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
@@ -22,3 +22,8 @@ jobs:
 
       - name: Push the Docker image
         run: docker push ghcr.io/${{ github.repository }}/app:latest
+
+      - name: Log out of GitHub Container Registry
+        run: docker logout ghcr.io
+
+      

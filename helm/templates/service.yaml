@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "nsd.fullname" . }}-react
+  namespace: {{ include "nsd.namespace" . }}
+  labels:
+    {{- (include "nsd.commonLabels" .) | nindent 4 }}
+    app.kubernetes.io/name: react
+spec:
+  ports:
+  - name: website
+    port: {{ default 80 .Values.service.port }}
+    protocol: TCP
+    targetPort: 5173
+  selector:
+    {{- (include "nsd.selectorLabels" .) | nindent 4 }}
+    app.kubernetes.io/name: app
+  type: ClusterIP
