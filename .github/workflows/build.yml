@@ -58,4 +58,4 @@ jobs:
           git tag ${{ env.VERSION }}
           
           # Push the tag back to the repository
-          git push origin ${{ env.VERSION }}
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} ${{ env.VERSION }}
