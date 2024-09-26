@@ -3,6 +3,21 @@ nameOverride:
 # fullnameOverride
 fullnameOverride:
 
+### Deployments configuration
+deployments:
+  app: 
+    labels:
+    annotations:
+    replicas:
+    terminationGracePeriodSeconds: 
+    containers: 
+      react: 
+        resources:
+        imagePullPolicy: IfNotPresent
+
+
+
+
 ### Ingress configuration
 ### Will automatically bind the hosts to the service
 ingress:
@@ -19,6 +34,11 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
+
+# globalLabels will be applied to all deployments and jobs 
+globalLabels:
+# globalAnnotations will be applied to all deployments and jobs 
+globalAnnotations: 
 
 # managedImagePullSecret, pass a base64 encoded version of a
 # .dockerconfigjson and it will be created by helm and applied
@@ -42,11 +62,6 @@ imagesConfiguration:
     react:
       repo:
       tag:
-
-# globalLabels will be applied to all deployments and jobs 
-globalLabels:
-# globalAnnotations will be applied to all deployments and jobs 
-globalAnnotations: 
 
 service:
   port: 80

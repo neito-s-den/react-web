@@ -1,0 +1,54 @@
+{{- $name := "app" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "nsd.fullname" . }}-{{ $name }}
+  namespace: {{ template "nsd.namespace" . }}
+  labels:
+    app.kubernetes.io/name: app
+    {{- (include "nsd.commonLabels" .) | nindent 4 }}
+    {{- if .Values.deployments.app.labels }}
+    {{- toYaml .Values.deployments.app.labels | nindent 4 }}
+    {{- end }}
+  annotations:
+    {{- (include "nsd.globalAnnotations" . ) | nindent 4 }}
+    {{- if .Values.deployments.app.annotations }}
+    {{- toYaml .Values.deployments.app.annotations | nindent 4 }}
+    {{- end }}
+spec:
+  replicas: {{ default 1 .Values.deployments.app.replicas }}
+  selector:
+    matchLabels:
+      {{ include "nsd.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/name: {{ $name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ $name }}
+        {{- (include "nsd.commonLabels" .) | nindent 8 }}
+        {{- if .Values.deployments.app.labels }}
+        {{- toYaml .Values.deployments.app.labels | nindent 8 }}
+        {{- end }}
+      annotations:
+        {{- (include "nsd.globalAnnotations" . ) | nindent 8 }}
+        {{- if .Values.deployments.app.annotations }}
+        {{- toYaml .Values.deployments.app.annotations | nindent 8 }}
+        {{- end }}
+    spec:
+      containers:
+        - name: react
+          image: {{ include "nsd.reactImage.url" . }}
+          imagePullPolicy: {{ default "IfNotPresent" .Values.deployments.app.containers.react.imagePullPolicy }}
+          ports:
+            - containerPort: 9000
+              protocol: TCP
+          {{- if .Values.deployments.app.containers.react.resources }}
+          {{- with .Values.deployments.app.containers.react.resources }}
+          resources:
+          {{- toYaml . | nindent 12 }}
+          {{- end -}}
+          {{- else }}
+          {{- end -}}
+      {{- (include "nsd.imagePullSecrets" .) | nindent 6 }}
+      restartPolicy: Always
+      terminationGracePeriodSeconds: {{ default 30 .Values.deployments.app.terminationGracePeriodSeconds }}

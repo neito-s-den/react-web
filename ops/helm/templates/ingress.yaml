@@ -19,7 +19,7 @@ metadata:
   namespace: {{ include "nsd.namespace" . }}
   labels:
     {{- include "nsd.commonLabels" . | nindent 4 }}
-    app.kubernetes.io/name: react
+    app.kubernetes.io/name: app
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -51,11 +51,11 @@ spec:
             backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
-                name: "{{ include "nsd.fullname" $ }}-react"
+                name: "{{ include "nsd.fullname" $ }}-app"
                 port:
                   number: {{ $svcPort }}
               {{- else }}
-              serviceName: "{{ include "nsd.fullname" $ }}-react"
+              serviceName: "{{ include "nsd.fullname" $ }}-app"
               servicePort: {{ $svcPort }}
               {{- end }}
           {{- end }}

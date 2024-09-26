@@ -91,3 +91,18 @@ imagePullSecrets:
 {{ define "nsd.globalImage.url" -}}
 {{ printf "%s:%s" (include "nsd.globalImage.repo" .) (include "nsd.globalImage.tag" .)}}
 {{- end -}}
+
+{{- /* nsd.reactImage.repo */}}
+{{ define "nsd.reactImage.repo" -}}
+{{ default (include "nsd.globalImage.repo" .) .Values.imagesConfiguration.custom.react.repo }}
+{{- end -}}
+
+{{- /* nsd.reactImage.tag */}}
+{{ define "nsd.reactImage.tag" -}}
+{{ default (include "nsd.globalImage.tag" .) .Values.imagesConfiguration.custom.react.tag }}
+{{- end -}}
+
+{{- /* nsd.reactImage.url */}}
+{{ define "nsd.reactImage.url" -}}
+{{ printf "%s:%s" (include "nsd.reactImage.repo" .) (include "nsd.reactImage.tag" .) }}
+{{- end -}}

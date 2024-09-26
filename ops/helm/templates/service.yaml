@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "nsd.fullname" . }}-react
+  name: {{ include "nsd.fullname" . }}-app
   namespace: {{ include "nsd.namespace" . }}
   labels:
     {{- (include "nsd.commonLabels" .) | nindent 4 }}
-    app.kubernetes.io/name: react
+    app.kubernetes.io/name: app
 spec:
   ports:
   - name: website
