@@ -1,4 +1,4 @@
-name: CD to K3s using Helm
+name: Neito's Den CI
 
 on:
   workflow_run:
