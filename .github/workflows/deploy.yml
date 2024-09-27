@@ -31,7 +31,7 @@ jobs:
           # Perform Helm upgrade (or install if it doesn't exist)
           helm upgrade --install betterpi ./ops/helm \
             --namespace neitosden-react \
-            --set image.tag="$TAG
+            --set image.tag="$TAG"
 
       # Optional: Verify the deployment status
       - name: Check Deployment Status
