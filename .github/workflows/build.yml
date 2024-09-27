@@ -1,4 +1,4 @@
-name: Neito's Den CI
+name: CI
 
 on:
   push:

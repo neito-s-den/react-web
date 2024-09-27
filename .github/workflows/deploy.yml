@@ -1,15 +1,15 @@
-name: Neito's Den CI
+name: CD
 
 on:
   workflow_run:
-    workflows: ["Neito's Den CI"]
+    workflows: ["CI"]
     types:
       - completed
 
 jobs:
   deploy:
     runs-on: self-hosted # Run this job on your self-hosted runner
-
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
