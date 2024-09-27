@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Neito's Den CI
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Set up date-based versioning with increment
         id: version
         run: |
@@ -38,7 +38,7 @@ jobs:
       - name: Build and push Docker image
         run: |
           echo "${{ secrets.GH_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-          
+
           # Build and tag Docker image with the new version
           docker build . --tag ghcr.io/${{ github.repository }}/app:${{ env.VERSION }}
           docker push ghcr.io/${{ github.repository }}/app:${{ env.VERSION }}
@@ -53,9 +53,9 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          
+
           # Create a new tag for the current commit
           git tag ${{ env.VERSION }}
-          
+
           # Push the tag back to the repository
           git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }} ${{ env.VERSION }}
