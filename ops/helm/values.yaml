@@ -5,13 +5,13 @@ fullnameOverride:
 
 ### Deployments configuration
 deployments:
-  app: 
+  app:
     labels:
     annotations:
     replicas:
-    terminationGracePeriodSeconds: 
-    containers: 
-      react: 
+    terminationGracePeriodSeconds:
+    containers:
+      react:
         resources:
         imagePullPolicy:
 
@@ -19,7 +19,7 @@ deployments:
 # Since all 3 images used by the console are shipped synchronously.
 imagesConfiguration:
   global:
-    repo: 
+    repo:
     tag:
   custom:
     react:
@@ -43,10 +43,10 @@ ingress:
         - path: /
           pathType: Prefix
 
-# globalLabels will be applied to all deployments and jobs 
+# globalLabels will be applied to all deployments and jobs
 globalLabels:
-# globalAnnotations will be applied to all deployments and jobs 
-globalAnnotations: 
+# globalAnnotations will be applied to all deployments and jobs
+globalAnnotations:
 
 # managedImagePullSecret, pass a base64 encoded version of a
 # .dockerconfigjson and it will be created by helm and applied
@@ -56,7 +56,7 @@ managedImagePullSecret:
 # imagePullSecrets is an object array of imagePullSecrets that will
 # be added to all resources.
 # exemple value: - name: name-of-secret
-imagePullSecrets: 
+imagePullSecrets:
   - name: regcred
 
 service:
