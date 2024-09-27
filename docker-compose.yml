@@ -10,3 +10,10 @@ services:
     # command: sleep infinity
     stdin_open: true # Enable interaction
     tty: true # Enable TTY
+
+  prod: 
+    build: ./ops/nginx
+    ports:
+      - "80:80"
+       
+    
