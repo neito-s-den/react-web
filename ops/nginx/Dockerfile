@@ -1,11 +1,15 @@
-FROM nginx:latest
+FROM nginx:alpine3.20-perl
 
-# Copy the content of the dist folder present 2 folders above
+# Remove the default configuration file
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy the content of the dist folder
 COPY ./dist /var/www/front
 
 # Copy nginx configuration files
 COPY ./ops/nginx/etc/nginx.conf /etc/nginx/nginx.conf
 COPY ./ops/nginx/etc/conf.d/front.conf /etc/nginx/conf.d/front.conf
+
 
 # Expose port 80
 EXPOSE 80
