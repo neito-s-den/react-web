@@ -11,9 +11,9 @@ services:
     stdin_open: true # Enable interaction
     tty: true # Enable TTY
 
-  prod: 
-    build: ./ops/nginx
+  prod:
+    build:
+      context: .
+      dockerfile: ./ops/nginx/Dockerfile
     ports:
       - "80:80"
-       
-    
