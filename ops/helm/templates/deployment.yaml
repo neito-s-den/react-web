@@ -40,7 +40,7 @@ spec:
           image: {{ include "nsd.reactImage.url" . }}
           imagePullPolicy: {{ default "IfNotPresent" .Values.deployments.app.containers.react.imagePullPolicy }}
           ports:
-            - containerPort: 9000
+            - containerPort: 80
               protocol: TCP
           {{- if .Values.deployments.app.containers.react.resources }}
           {{- with .Values.deployments.app.containers.react.resources }}

@@ -11,7 +11,7 @@ spec:
   - name: website
     port: {{ default 80 .Values.service.port }}
     protocol: TCP
-    targetPort: 5173
+    targetPort: 80
   selector:
     {{- (include "nsd.selectorLabels" .) | nindent 4 }}
     app.kubernetes.io/name: app
