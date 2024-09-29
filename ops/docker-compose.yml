@@ -17,3 +17,12 @@ services:
       dockerfile: ./ops/nginx/Dockerfile
     ports:
       - "80:80"
+
+  docusaurus: 
+    image: node:20-alpine
+    volumes:
+      - ./blog:/neitosden
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
